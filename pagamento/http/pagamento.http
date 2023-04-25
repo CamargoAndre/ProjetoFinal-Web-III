@@ -1,0 +1,7 @@
+### salvar
+POST http://localhost:8090/pagamentos
+Content-Type: application/json
+
+< ./fred-50-leo.json
+#<  ./leo-150-fred.json
+#< ./jordan-100-fredm.json
