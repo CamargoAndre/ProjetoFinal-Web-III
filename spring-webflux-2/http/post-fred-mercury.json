@@ -1,0 +1,8 @@
+{
+  "name" : "Fred Mercury",
+  "username" : "fredm",
+  "birth" : 1960,
+  "roles"  : [ "usuario", "cantor" ],
+  "since" : "2023-02-20",
+  "balance" : 1000
+}

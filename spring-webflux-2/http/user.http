@@ -1,0 +1,23 @@
+### salvar
+POST http://localhost:8080/users
+Content-Type: application/json
+
+< ./post-leo-santana.json
+#< ./post-fred-mercury.json
+#< ./post-michael-jordan.json
+
+
+### listar
+GET http://localhost:8080/users
+
+### atualizar
+PUT http://localhost:8080/users/6446cf83c020c045fb517bd2
+Content-Type: application/json
+
+< ./post-fred-mercury.json
+
+### remover
+DELETE localhost:8080/users/6446d182c020c045fb517bd4
+
+### listar
+GET http://localhost:8080/users/usernames?users=fredm,jordan
