@@ -38,12 +38,19 @@ public class PagamentoService {
 
         Mono<Comprovante> comprovanteMono = Flux.zip(usuarios, usuarios.skip(1))
                 .map(tupla -> {
-                    if(tupla.getT1().getBalance() < pagamento.getValor()){
-                        return null;
+
+                    if(tupla.getT1().getUsername().equals(pagamento.getPagador())) {
+                        if (tupla.getT1().getBalance() < pagamento.getValor()) {
+                            return null;
+                        }
+                    }else{
+                        if (tupla.getT2().getBalance() < pagamento.getValor()) {
+                            return null;
+                        }
                     }
                      return new Transacao(
-                        tupla.getT1().getUsername(),
-                        tupla.getT2().getUsername(),
+                        pagamento.getPagador(),
+                        pagamento.getRecebedor(),
                         pagamento.getValor());
                  }
                 )

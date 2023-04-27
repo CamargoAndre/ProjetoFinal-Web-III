@@ -51,8 +51,15 @@ public class UserService {
         Flux<User> users = this.buscarPorUsernames(comp.getParamsUsers());
         return users.zipWith(users.skip(1))
                 .map(tupla -> {
-                    User pagador = tupla.getT1();
-                    User recebedor = tupla.getT2();
+                    User pagador;
+                    User recebedor;
+                    if(tupla.getT1().getUsername().equals(comp.getPagador())){
+                        pagador = tupla.getT1();
+                        recebedor = tupla.getT2();
+                    }else{
+                        pagador = tupla.getT2();
+                        recebedor = tupla.getT1();
+                    }
                     pagador.pay(recebedor, comp);
                     return List.of(pagador, recebedor);
                 })
