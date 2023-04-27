@@ -1,8 +1,0 @@
-### flux
-GET http://localhost:8080/flux
-
-### mono
-GET http://localhost:8080/mono
-
-### stream -> hora
-GET http://localhost:8080/hora
